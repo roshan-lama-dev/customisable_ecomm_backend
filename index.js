@@ -1,11 +1,20 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { dbConnection } from "./src/config/dbConfig.js";
+import UserRouter from "./src/router/userRouter.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 // database connection
 dbConnection();
+
+// middleware
+
+app.use(express.json());
+app.use(cors());
+// router
+app.use("/api/v1/user", UserRouter);
 app.use("/", (req, res) => {
   res.send("Helloo");
 });

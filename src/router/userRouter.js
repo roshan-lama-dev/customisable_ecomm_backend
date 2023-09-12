@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/", (req, res, next) => {
   try {
+    res.send("HElo");
   } catch (error) {
     next(error);
   }
