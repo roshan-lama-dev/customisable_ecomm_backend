@@ -15,8 +15,10 @@ app.use(express.json());
 app.use(cors());
 // router
 app.use("/api/v1/user", UserRouter);
-app.use("/", (req, res) => {
-  res.send("Helloo");
+app.use("/home", (req, res) => {
+  res.json({
+    msg: "Hi this is the new message from the CICD pipeline",
+  });
 });
 
 // global error handler
