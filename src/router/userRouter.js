@@ -13,7 +13,7 @@ router.post("/", (req, res, next) => {
 router.get("/", (req, res, next) => {
   try {
     res.json({
-      ehllo: "hi",
+      msg: "This is the mesage for the router",
     });
   } catch (error) {
     next(error);
