@@ -20,6 +20,11 @@ app.use("/home", (req, res) => {
     msg: "Hi this is the new message from the CICD pipeline",
   });
 });
+app.use("/test", (req, res) => {
+  res.json({
+    msg: "Hi this is the new message from the test pipeline",
+  });
+});
 
 // global error handler
 app.use((error, req, res, next) => {
