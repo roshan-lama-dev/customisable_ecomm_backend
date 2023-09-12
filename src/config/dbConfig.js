@@ -4,8 +4,7 @@ dotenv.config();
 export const dbConnection = () => {
   try {
     const connect = mongoose.connect(
-      process.env.MONGOURL ||
-        "mongodb+srv://ecomm_admin:jf6gn6NukvrnI6GB@cluster0.hapt5vb.mongodb.net/ecomm_database"
+      "mongodb+srv://ecomm_admin:ecomm_admin@cluster0.hapt5vb.mongodb.net/ecomm_database"
     );
     connect
       ? console.log("DB connection success")

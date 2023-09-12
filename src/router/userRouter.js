@@ -12,7 +12,9 @@ router.post("/", (req, res, next) => {
 
 router.get("/", (req, res, next) => {
   try {
-    res.send("Success");
+    res.json({
+      ehllo: "hi",
+    });
   } catch (error) {
     next(error);
   }
