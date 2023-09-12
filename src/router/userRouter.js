@@ -10,4 +10,12 @@ router.post("/", (req, res, next) => {
   }
 });
 
+router.get("/", (req, res, next) => {
+  try {
+    res.send("Success");
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;
