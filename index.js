@@ -20,7 +20,9 @@ app.use("/v1/user", authRouter);
 
 // global error handler
 app.use((error, req, res, next) => {
-  const statusCode = error.errorCode || 404;
+  console.log(error);
+
+  const statusCode = error.code || 404;
   res.status(statusCode).json({
     status: "error",
     message: error.message,
