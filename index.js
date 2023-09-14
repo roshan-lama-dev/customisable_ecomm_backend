@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { dbConnection } from "./src/config/dbConfig.js";
 import UserRouter from "./src/router/userRouter.js";
+import authRouter from "./src/router/auth.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,11 +16,7 @@ app.use(express.json());
 app.use(cors());
 // router
 app.use("/v1/user", UserRouter);
-app.use("/home", (req, res) => {
-  res.json({
-    msg: "Hi this is the new message from the CICD pipeline",
-  });
-});
+app.use("/v1/user", authRouter);
 
 // global error handler
 app.use((error, req, res, next) => {
