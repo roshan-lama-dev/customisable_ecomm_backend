@@ -14,15 +14,10 @@ dbConnection();
 app.use(express.json());
 app.use(cors());
 // router
-app.use("/api/v1/user", UserRouter);
+app.use("/v1/user", UserRouter);
 app.use("/home", (req, res) => {
   res.json({
     msg: "Hi this is the new message from the CICD pipeline",
-  });
-});
-app.use("/test", (req, res) => {
-  res.json({
-    msg: "Hi this is the new message from the test pipeline",
   });
 });
 
