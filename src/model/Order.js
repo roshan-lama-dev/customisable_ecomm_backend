@@ -2,33 +2,21 @@ import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    desc: {
-      type: String,
-      required: true,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
-    categories: {
-      type: Array,
-      required: true,
-    },
-    size: {
-      type: String,
-    },
-    color: {
-      type: String,
-    },
-    price: {
-      type: String,
-      required: true,
-    },
+    userId: { type: String, required: true },
+    products: [
+      {
+        productId: {
+          type: String,
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+        },
+      },
+    ],
+    amount: { type: Number, required: true },
+    address: { type: Object, required: true },
+    status: { type: String, default: "pending" },
   },
   { timestamps: true }
 );
