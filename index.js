@@ -19,9 +19,12 @@ dbConnection();
 app.use(express.json());
 app.use(cors());
 // router
+app.use("/v1", (req, res) => {
+  res.send("Helo");
+});
 app.use("/v1/user", UserRouter);
 app.use("/v1/user", authRouter);
-app.use("/v1/product", productRouter);
+app.use("/v1/products", productRouter);
 app.use("/v1/order", orderRouter);
 app.use("/v1/cart", cartRouter);
 app.use("/v1/checkout", stripeRouter);
